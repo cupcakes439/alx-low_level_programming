@@ -4,7 +4,7 @@
  * Description: 'use of sizeof( )'
  * Return: Always 0 (Success)
  */
-int main(void)
+ int main(void)
 {
 	char age;
 	int aged;
