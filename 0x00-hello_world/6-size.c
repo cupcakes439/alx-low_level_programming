@@ -2,8 +2,8 @@
 
 /**
  * main - Entry point
- * Description: 'use of sizeof( )'
- * Return: Always 0 (Success);
+ * 
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
