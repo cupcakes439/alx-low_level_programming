@@ -11,7 +11,6 @@ int aged;
 long int ages;
 long long int ag;
 float agem;
-
 printf("Size of a char: %zu byte(s)\n", sizeof(age));
 printf("Size of an int: %zu byte(s)\n", sizeof(aged));
 printf("Size of a long int: %zu byte(s)\n", sizeof(ages));
