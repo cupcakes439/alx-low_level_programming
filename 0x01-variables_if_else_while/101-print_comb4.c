@@ -1,35 +1,47 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
 /**
  * main - Entry point
  *
- * Return: Always 0 (Success)
+ * Return: Always 0 (Success/correct)
  */
-
 int main(void)
-{
-	int d, p, q;
 
-	for (d = '0'; d < '9'; d++)
+{
+	int left;
+	int right;
+	int center;
+
+
+
+	for (left = 48; left <= 57; left++)
 	{
-		for (p = d + 1; p <= '9'; p++)
+		for (center = left + 1; center <= 57; center++)
 		{
-			for (q = p + 1; q <= '9'; q++)
+			for (right = center + 1 ; right <= 57; right++)
+
+
+
 			{
-				if ((p != d) != q)
-					putchar(d);
-				putchar(p);
-				putchar(q);
-				if (d == '7' && p == '8')
-					continue;
+				putchar(left);
+				putchar (center);
+				putchar (right);
+
+				if  ((left == 55) && (center == left + 1) && (right == center + 1))
+				{
+					break;
+				}
+
 				putchar(',');
-				putchar(' ');
+				putchar (' ');
+
 			}
+
 		}
+
 	}
-}
-putchar('\n');
-return (0);
+
+	putchar('\n');
+
+	return (0);
+
 }
