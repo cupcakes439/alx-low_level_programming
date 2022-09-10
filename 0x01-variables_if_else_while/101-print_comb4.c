@@ -3,41 +3,33 @@
 #include <time.h>
 
 /**
- * main - print triple combos
- *
- * Description: print triple digit combos
+ * main - Entry point
  *
  * Return: Always 0 (Success)
  */
 
 int main(void)
 {
-	int i, j, k;
+	int d, p, q;
 
-	i = 48;
-	j = 48;
-	k = 48;
-	while (i < 58)
+	for (d = '0'; d < '9'; d++)
 	{
-		j = i + 1;
-		while (j < 58)
+		for (p = d + 1; p <= '9'; p++)
 		{
-			k = j + 1;
-			while (k < 58)
+			for (q = p + 1; q <= '9'; q++)
 			{
-				putchar(i);
-				putchar(j);
-				putchar(k);
-				if (i < 55 || j < 56 || k < 57)
-				{
-					putchar(44);
-					putchar(32);
-							k++;
-							}
-							j++;
-							}
-							i++;
-							}
-							putchar(10);
-							return (0);
+				if ((p != d) != q)
+					putchar(d);
+				putchar(p);
+				putchar(q);
+				if (d == '7' && p == '8')
+					continue;
+				putchar(',');
+				putchar(' ');
+			}
+		}
+	}
+}
+putchar('\n');
+return (0);
 }
