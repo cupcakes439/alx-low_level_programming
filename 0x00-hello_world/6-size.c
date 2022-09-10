@@ -1,20 +1,21 @@
 #include <stdio.h>
+
 /**
- * main - Entry point
- * Description: 'use of sizeof( )'
+ * main - pint the size of various types
+ *
+ * Description: prints the size of various types on the computer it is compiled
+ *
+ * and run on
+ *
  * Return: Always 0 (Success)
  */
+
 int main(void)
 {
-char age;
-int aged;
-long int ages;
-long long int ag;
-float agem;
-printf("Size of a char: %zu byte(s)\n", sizeof(age));
-printf("Size of an int: %zu byte(s)\n", sizeof(aged));
-printf("Size of a long int: %zu byte(s)\n", sizeof(ages));
-printf("Size of a long long int: %zu byte(s)\n", sizeof(ag));
-printf("Size of a float: %zu byte(s)\n", sizeof(agem));
+printf("size of a char: %d byte(s)\n", sizeof(char));
+printf("size of an int: %d byte(s)\n", sizeof(int));
+printf("size of a long int: %d byte(s)\n", sizeof(long int));
+printf("size of a long long int: %d byte(s)\n", sizeof(long long int));
+printf("size of a float: %d byte(s)\n", sizeof(float));
 return (0);
 }	
