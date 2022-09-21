@@ -1,16 +1,23 @@
-/**
- * _memset - fills memory with a constant byte
- * @s: pointer to memory area 's'
- * @b: constant byte to fill
- * @n: number of bytes to fill
- * Return: pointer to memory area 's'
- */
-
-char *_memset(char *s, char b, unsigned int n)
-{
-	unsigned int i;
-
-	for (i = 0; i < n; i++)
-		s[i] = b;
-	return (s);
+#include "main.h"                                                                                                                    
+                                                                                                                                     
+/**                                                                                                                                  
+ * strcat - Concatenates the string pointed to by @src, including the terminat                                                       
+ *          null byte, to the end of the string pointed to by @dest.                                                                 
+ * @dest: A pointer to the string to be concatenated upon.                                                                           
+ * @src: The source string to be appended to @dest.                                                                                  
+ *                                                                                                                                   
+ * Return: A pointer to the destination string @dest.                                                                                
+ */                                                                                                                                  
+char *strcat(char *dest, const char *src)                                                                                            
+{                                                                                                                                    
+        int index = 0, dest_len = 0;                                                                                                 
+                                                                                                                                     
+        while (dest[index++])                                                                                                        
+                dest_len++;                                                                                                          
+                                                                                                                                     
+        for (index = 0; src[index]; index++)                                                                                         
+                dest[dest_len++] = src[index];                                                                                       
+                                                                                                                                     
+        return (dest);                                                                                                               
 }
+
