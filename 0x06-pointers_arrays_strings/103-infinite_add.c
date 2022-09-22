@@ -1,41 +1,54 @@
 #include "main.h"
 #include <stdio.h>
-
 /**
- * infinite_add - Adds two numbers
- * @n1: first input string
- * @n2: second input string
- * @r: pointer to buffer where result is stored
- * @size_r: requested size for the buffer
- * Return: pointer to buffer where result is stored
+ * infinite_add - adds two numbers
+ * @n1: number one.
+ * @n2: number two.
+ * @r: buffer that the function will use to store the result.
+ * @size_r: buffer size:
+ * Return: the pointer to dest.
  */
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	/* i = iterator for n1 and n2; j = iterator for r; n = carry over number */
-	int i, j, n;
-	
-	i = j = n = 0;
-	/* if r[0] >= 10, set value to 1 & increase buffer size by 1*/
-	if ((n1[0] - '0') + (n2[0] - '0') >= 10)
+	int c1 = 0, c2 = 0, op, bg, dr1, dr2, add = 0;
+
+	while (*(n1 + c1) != '\0')
+		c1++;
+	while (*(n2 + c2) != '\0')
+		c2++;
+	if (c1 >= c2)
+		bg = c1;
+	else
+		bg = c2;
+	if (size_r <= bg + 1)
+		return (0);
+	r[bg + 1] = '\0';
+	c1--, c2--, size_r--;
+	dr1 = *(n1 + c1) - 48, dr2 = *(n2 + c2) - 48;
+	while (bg >= 0)
 	{
-		r[0] = 1 + '0';
-		j = 1;
-	}
-	while (i < size_r && (n1[i] != '\0' || n2[i] != '\0' || r[j] != '\0'))
-	{
-		if ((n1[i + 1] - '0') + (n2[i + 1] - '0') >= 10)
-			n = 1;
+		op = dr1 + dr2 + add;
+		if (op >= 10)
+			add = op / 10;
 		else
-			n = 0;
-		r[j] = (n1[i] - '0') + (n2[i] - '0') + n;
-		r[j] = r[j] % 10 + '0';
-/*		printf("i: %d, n1: %d, n2: %d, j: %d, r: %d\n", i, n1[i] - '0', n2[i] - '0', j, r[j]- '0'); debug*/
-		i++;
-		j++;
-		if (n1[i] == '\0' || n2[i] == '\0')
-			r[j] = '\0';
+			add = 0;
+		if (op > 0)
+			*(r + bg) = (op % 10) + 48;
+		else
+			*(r + bg) = '0';
+		if (c1 > 0)
+			c1--, dr1 = *(n1 + c1) - 48;
+		else
+			dr1 = 0;
+		if (c2 > 0)
+			c2--, dr2 = *(n2 + c2) - 48;
+		else
+			dr2 = 0;
+		bg--, size_r--;
 	}
-	r[j] = '\0';
-	return (r);
+	if (*(r) == '0')
+		return (r + 1);
+	else
+		return (r);
 }
